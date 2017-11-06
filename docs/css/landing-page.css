@@ -31,8 +31,7 @@ h6 {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background-image: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url(../images/intro-header.jpg);
-    /*background: url(../images/intro-header.jpg) no-repeat center center;*/
+    background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url(../images/intro-header-full.jpg) no-repeat center center;
     background-size: cover;
 }
 
