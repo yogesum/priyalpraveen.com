@@ -24,7 +24,36 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
+  <style type="text/css">
+  #clockdiv {
+    font-family: sans-serif;
+    color: #4f1927;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 30px;
+  }
 
+  #clockdiv > div {
+    padding: 10px;
+    border-radius: 3px;
+    background: rgba(236, 236, 236, 0.40);
+    display: inline-block;
+  }
+
+  #clockdiv div > span {
+    padding: 15px;
+    width: 72px;
+    border-radius: 93px;
+    background: rgba(236, 236, 236, 0.8);
+    display: inline-block;
+  }
+
+  .smalltext{
+    padding-top: 5px;
+    font-size: 16px;
+  }
+  </style>
 </head>
 
 <body>
@@ -40,11 +69,30 @@
             <h1>Praveen <i class="fa fa-heart-o fa-spin" aria-hidden="true"></i> Priyal</h1>
             <h3>Jaipur, Rajasthan   <i class="fa fa-globe" aria-hidden="true"></i>   December 11, 2017</h3>
             <hr class="intro-divider">
-            <ul class="list-inline intro-social-buttons">
+            <ul class="list-inline intro-social-buttons hide">
               <li>
                 <a href="#rsvp" class="btn btn-default btn-lg"><i class="fa fa-envelope-open-o fa-fw"></i> <span class="network-name">RSVP</span></a>
               </li>
             </ul>
+            <h2>Fun begins in ...</h2>
+<div id="clockdiv">
+  <div>
+    <span class="days"></span>
+    <div class="smalltext">Days</div>
+  </div>
+  <div>
+    <span class="hours"></span>
+    <div class="smalltext">Hours</div>
+  </div>
+  <div>
+    <span class="minutes"></span>
+    <div class="smalltext">Minutes</div>
+  </div>
+  <div>
+    <span class="seconds"></span>
+    <div class="smalltext">Seconds</div>
+  </div>
+</div>
           </div>
         </div>
       </div>
@@ -102,5 +150,50 @@
     </div>
   </div>
 </footer>
+
+<!-- time remaining clock -->
+<script type="text/javascript">
+function getTimeRemaining(endtime) {
+  var t = endtime - new Date();
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  var daysSpan = clock.querySelector('.days');
+  var hoursSpan = clock.querySelector('.hours');
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+  }
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline = new Date('2017-12-11 09:00');
+initializeClock('clockdiv', deadline);
+</script>
 </body>
 </html>
