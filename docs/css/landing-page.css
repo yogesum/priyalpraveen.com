@@ -31,12 +31,25 @@ h6 {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url(../images/intro-header-full.jpg) no-repeat center center;
+    background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url(../images/intro-header-full.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 
 #home, .intro-header {
     height: 100%;
+}
+
+#schedule h3 {
+    font-size: 32px;
+    font-weight: 500;
+    color: #90AB76;
+    font-family: "Pacifico", cursive;
+}
+
+#schedule h1 {
+    font-weight: 500;
+    color: #90AB76;
+    font-family: "Pacifico", cursive;
 }
 
 .intro-message {
