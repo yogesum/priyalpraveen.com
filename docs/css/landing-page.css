@@ -31,8 +31,9 @@ h6 {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url(../images/intro-header-full.jpg) no-repeat center center fixed;
+    background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url(../images/intro-header-responsive.jpg) no-repeat center center;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 #home, .intro-header {
@@ -81,6 +82,10 @@ h6 {
 
     .intro-message > h1 {
         font-size: 3em;
+    }
+
+    .auto-xs {
+      display: block !important;
     }
 
     ul.intro-social-buttons > li {
