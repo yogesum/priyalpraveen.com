@@ -167,6 +167,8 @@
 </footer>
 
 <!-- time remaining clock -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript">
 function getTimeRemaining(endtime) {
   var t = endtime - new Date();
@@ -207,8 +209,12 @@ function initializeClock(id, endtime) {
   var timeinterval = setInterval(updateClock, 1000);
 }
 
-var deadline = new Date('2017-12-11 09:00');
+var deadline = new Date(2017, 11, 12, 9, 0, 0);
 initializeClock('clockdiv', deadline);
+$(document).ready(function(){
+    $('[data-toggle="popover"]').popover();
+});
+
 </script>
 </body>
 </html>
