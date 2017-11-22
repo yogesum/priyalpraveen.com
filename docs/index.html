@@ -13,7 +13,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link href="./css/landing-page.css?v4" rel="stylesheet">
+  <link href="./css/landing-page.css?v5" rel="stylesheet">
 
   <!-- Custom Fonts -->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -127,6 +127,50 @@
           <img src="images/bird-cage.png" style="position: absolute;right: 0;top: 178px;width: 201px;">
       </div>
     </div>
+    <div class="col-xs-12" style="background: #fff;">
+        <button type="button" id="cardDownload" class="btn btn-default" data-container="body" data-toggle="popover" data-html="true" data-placement="top" data-content="
+            <div style='padding: 3px 2px;font-size: 19px;'><a href='https://drive.google.com/uc?export=download&id=1a70KsQQYVn6osBJ-Fs1Ohq8a0L9udPqk'><img width='30' src='./images/praveen.png'><span style='margin-left: 5px;'>Praveen and Family</span></a></div>
+            <div style='padding: 3px 2px;text-align:right;width: 245px;font-size: 19px;'><a href='https://drive.google.com/uc?export=download&id=18ESYS84efCgvjWbA3wfqpZrebhqbLGLk'><span style='margin-right: 5px;'>Priyal and Family</span><img width='30' src='./images/priyal.png'></a></div>
+        ">
+          Download Card
+        </button>
+        <a href="button" class="btn btn-default">
+          RSVP
+        </a>
+    </div>
+      <hr/>
+      <div class="container-fluid" style="margin-top: 10%;">
+          <div class="row">
+              <div class="text-center col-xs-12 m-t-xs"><h3>Say something about the couple</h3></div>
+              <div class="col-xs-12 col-sm-12 col-md-6">
+                  <form name="commentForm">
+                      <div class="col-xs-12 m-t-xs m-b-xs">
+                          <input class="form-control" type="text" id="name" placeholder="Name">
+                      </div>
+                      <div class="col-xs-12 m-t-xs m-b-xs">
+                          <textarea class="form-control" id="comment" rows="3" cols="30" placeholder="Comment"></textarea>
+                      </div>
+                      <div class="col-xs-12 m-t-xs m-b-xs">
+                          <button class="btn btn-success pull-left" type="button" onClick="comments()">COMMENT</button>
+                      </div>
+                  </form>
+              </div>
+              <div class="col-xs-12 col-sm-12 col-md-6">
+                  <div class="tcb-simple-carousel">
+                      <div id="myCarousel" class="carousel slide">
+                          <!-- Indicators -->
+                          <div class="carousel-inner" id="comments">
+
+                          </div>
+                          <div class="carousel-controls">
+                              <a class="carousel-control left" href="#myCarousel" data-slide="prev"><span class="fa fa-angle-double-left"></span></a>
+                              <a class="carousel-control right" href="#myCarousel" data-slide="next"><span class="fa fa-angle-double-right"></span></a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
   </div>
   <div class="col-lg-5 col-lg-offset-2 col-sm-6">
   </div>
@@ -169,52 +213,99 @@
 <!-- time remaining clock -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 <script type="text/javascript">
-function getTimeRemaining(endtime) {
-  var t = endtime - new Date();
-  var seconds = Math.floor((t / 1000) % 60);
-  var minutes = Math.floor((t / 1000 / 60) % 60);
-  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-  var days = Math.floor(t / (1000 * 60 * 60 * 24));
-  return {
-    'total': t,
-    'days': days,
-    'hours': hours,
-    'minutes': minutes,
-    'seconds': seconds
-  };
-}
-
-function initializeClock(id, endtime) {
-  var clock = document.getElementById(id);
-  var daysSpan = clock.querySelector('.days');
-  var hoursSpan = clock.querySelector('.hours');
-  var minutesSpan = clock.querySelector('.minutes');
-  var secondsSpan = clock.querySelector('.seconds');
-
-  function updateClock() {
-    var t = getTimeRemaining(endtime);
-
-    daysSpan.innerHTML = t.days;
-    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-    if (t.total <= 0) {
-      clearInterval(timeinterval);
+    function getTimeRemaining(endtime) {
+      var t = endtime - new Date();
+      var seconds = Math.floor((t / 1000) % 60);
+      var minutes = Math.floor((t / 1000 / 60) % 60);
+      var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+      var days = Math.floor(t / (1000 * 60 * 60 * 24));
+      return {
+        'total': t,
+        'days': days,
+        'hours': hours,
+        'minutes': minutes,
+        'seconds': seconds
+      };
     }
-  }
 
-  updateClock();
-  var timeinterval = setInterval(updateClock, 1000);
-}
+    function initializeClock(id, endtime) {
+      var clock = document.getElementById(id);
+      var daysSpan = clock.querySelector('.days');
+      var hoursSpan = clock.querySelector('.hours');
+      var minutesSpan = clock.querySelector('.minutes');
+      var secondsSpan = clock.querySelector('.seconds');
 
-var deadline = new Date(2017, 11, 12, 9, 0, 0);
-initializeClock('clockdiv', deadline);
-$(document).ready(function(){
-    $('[data-toggle="popover"]').popover();
-});
+      function updateClock() {
+        var t = getTimeRemaining(endtime);
 
+        daysSpan.innerHTML = t.days;
+        hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+        if (t.total <= 0) {
+          clearInterval(timeinterval);
+        }
+      }
+
+      updateClock();
+      var timeinterval = setInterval(updateClock, 1000);
+    }
+
+    var deadline = new Date(2017, 11, 12, 4, 0, 0);
+    initializeClock('clockdiv', deadline);
+    $(document).ready(function(){
+        $('[data-toggle="popover"]').popover();
+    });
+
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBxUy0ciqWkTBPNhTynV5TwMXiIIslGWcQ",
+        authDomain: "test-a74b8.firebaseapp.com",
+        databaseURL: "https://test-a74b8.firebaseio.com",
+        projectId: "test-a74b8",
+        storageBucket: "test-a74b8.appspot.com",
+        messagingSenderId: "827877571148"
+    };
+    firebase.initializeApp(config);
+    var db = firebase.database();
+    var count = 1;
+    (function() {
+        var starCountRef = db.ref('comments');
+        starCountRef.on('value', function(snapshot) {
+            var comments = snapshot.val();
+            count = snapshot.numChildren();
+            showComments(comments, count);
+        });
+    })();
+    function comments() {
+        var name = $('#name').val();
+        var comment = $('#comment').val();
+        $('#name').val('');
+        $('#comment').val('');
+        db.ref('comments/comment' + count).set({
+            name: name,
+            comment: comment,
+        });
+    }
+
+    function showComments(comments, len) {
+       var keys = Object.keys(comments);
+        var html = '';
+       for(var i=0;i < len;i++) {
+            html += [
+               '<div class="item'+ (i === 0  ? "active" : "") +'">',
+               '<blockquote>',
+               '<p> ' + comments[keys[i]].comment + '</p>',
+               '<small><cite>' + comments[keys[i]].name + '</cite> (Ladke Waale)</small>',
+               '</blockquote>',
+               '</div>'
+           ].join(' ');
+       }
+       $("#comments").html(html);
+    }
 </script>
 </body>
 </html>

@@ -187,3 +187,31 @@ footer {
 p.copyright {
     margin: 15px 0 0;
 }
+
+.tcb-simple-carousel {
+    margin-top: 50px;
+}
+.tcb-simple-carousel .carousel-control {
+    background:	#ddd;
+    color:#999;
+    padding: 4px 0;
+    width:26px;
+    top:auto;
+    left:auto;
+    bottom:0;
+    opacity:1;
+    text-shadow:none;
+}
+.tcb-simple-carousel .carousel-control.right {
+  right:10px;
+}
+.tcb-simple-carousel .carousel-control.left {
+  right: 40px;
+}
+
+.m-t-xs {
+    margin-top: 5px;
+}
+.m-b-xs {
+    margin-bottom: 5px;
+}
