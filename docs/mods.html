@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="wedding in Jaipur on December 11, 2017.">
+    <meta name="author" content="Praveen Somani and Priyal Maheshwari">
+
+    <title>Praveen and Priyal Wedding</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./css/landing-page.css?v5" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="./css/goog-font.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style type="text/css">
+        #clockdiv {
+            font-family: sans-serif;
+            color: #df272b;
+            display: inline-block;
+            font-weight: 100;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        #clockdiv > div {
+            padding: 10px;
+            border-radius: 3px;
+            background: rgba(236, 236, 236, 0.40);
+            display: inline-block;
+        }
+
+        #clockdiv div > span {
+            padding: 15px;
+            width: 72px;
+            border-radius: 93px;
+            background: rgba(236, 236, 236, 0.8);
+            display: inline-block;
+        }
+
+        .smalltext {
+            padding-top: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+<section>
+    <table class="table table-stripped">
+        <thead>
+            <tr>
+                <th>Sr No.</th>
+                <th>Name</th>
+                <th>Which Side</th>
+                <th>Comment</th>
+                <th>Approval</th>
+            </tr>
+        </thead>
+        <tbody id="commentList">
+            <!-- Comments list over here -->
+        </tbody>
+    </table>
+</section>
+
+
+<!-- time remaining clock -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script type="text/javascript">
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyBxUy0ciqWkTBPNhTynV5TwMXiIIslGWcQ",
+        authDomain: "test-a74b8.firebaseapp.com",
+        databaseURL: "https://test-a74b8.firebaseio.com",
+        projectId: "test-a74b8",
+        storageBucket: "test-a74b8.appspot.com",
+        messagingSenderId: "827877571148"
+    };
+    firebase.initializeApp(config);
+    var db = firebase.database();
+    var count = 1;
+    var comments = {};
+    (function() {
+        var starCountRef = db.ref('comments');
+        starCountRef.on('value', function(snapshot) {
+            comments = snapshot.val();
+            count = snapshot.numChildren();
+            showComments(comments, count);
+        });
+    })();
+
+    function showComments(comments, len) {
+        var keys = Object.keys(comments);
+        var html = '';
+        for(var i=0;i < len;i++) {
+            var com = comments[keys[i]];
+            html += [
+                '<tr class="'+( com.isApproved ? "alert-success" : "alert-danger")+'">',
+                '<td>' + (i + 1) + '</td>',
+                '<td>' + com.name + '</td>',
+                '<td>' + com.side + '</td>',
+                '<td>' + com.comment + '</td>',
+                '<td><button class="btn btn-success" idx="' + i + '">Approve</button>&nbsp;<button  idx="' + i + '" class="btn btn-danger">Reject</button></td>',
+                '</tr>'
+            ].join(' ');
+        }
+        $("#commentList").html(html);
+    }
+
+    var table = $( "table" );
+    table.delegate( ".btn", "click", function() {
+        var updates = {};
+        var idx = $(this).attr('idx');
+        var data =  comments['comment' + parseInt(idx)];
+        data.isApproved = $(this).hasClass('btn-success');
+        updates['comments/comment' + parseInt(idx)] = data;
+        return db.ref().update(updates);
+    });
+</script>
+</body>
+</html>

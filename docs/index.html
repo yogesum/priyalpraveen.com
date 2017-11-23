@@ -128,9 +128,10 @@
       </div>
     </div>
     <div class="col-xs-12" style="background: #fff;">
-        <button type="button" id="cardDownload" class="btn btn-default" data-container="body" data-toggle="popover" data-html="true" data-placement="top" data-content="
-            <div style='padding: 3px 2px;font-size: 19px;'><a href='https://drive.google.com/uc?export=download&id=1a70KsQQYVn6osBJ-Fs1Ohq8a0L9udPqk'><img width='30' src='./images/praveen.png'><span style='margin-left: 5px;'>Praveen and Family</span></a></div>
-            <div style='padding: 3px 2px;text-align:right;width: 245px;font-size: 19px;'><a href='https://drive.google.com/uc?export=download&id=18ESYS84efCgvjWbA3wfqpZrebhqbLGLk'><span style='margin-right: 5px;'>Priyal and Family</span><img width='30' src='./images/priyal.png'></a></div>
+        <button type="button" id="cardDownload" class="btn btn-default" data-container="body" data-toggle="popover" data-trigger="focus" data-html="true" data-placement="top" data-content="
+            <div style='padding: 3px 2px;font-size: 19px;'><a href='https://drive.google.com/uc?export=download&id=1a70KsQQYVn6osBJ-Fs1Ohq8a0L9udPqk'><img width='30' src='./images/praveen30.png'><span style='margin-left: 5px;'>Praveen and Family</span></a></div>
+            <div class='text-center' style='height: 2px;background: #eee'><div style='color: red;font-size: 39px;position: absolute;top: 22px;left: 48%;'>&#x2665;</div></div>
+            <div style='padding: 3px 2px;text-align:right;width: 245px;font-size: 19px;'><a href='https://drive.google.com/uc?export=download&id=18ESYS84efCgvjWbA3wfqpZrebhqbLGLk'><span style='margin-right: 15px;'>Priyal and Family</span><img width='30' src='./images/priyal30.png'></a></div>
         ">
           Download Card
         </button>
@@ -139,19 +140,26 @@
         </a>
     </div>
       <hr/>
-      <div class="container-fluid" style="margin-top: 10%;">
-          <div class="row">
-              <div class="text-center col-xs-12 m-t-xs"><h3>Say something about the couple</h3></div>
+      <div class="container-fluid" style="margin-top: 5%;">
+          <div class="row" style="border-top: 1px solid #eee;padding: 1%;">
+              <div class="text-center col-xs-12 m-t-xs" style="margin-bottom: 20px;"><h3>Say something about the couple</h3></div>
               <div class="col-xs-12 col-sm-12 col-md-6">
                   <form name="commentForm">
-                      <div class="col-xs-12 m-t-xs m-b-xs">
-                          <input class="form-control" type="text" id="name" placeholder="Name">
+                      <div class="col-xs-12 m-t-xs m-b-xs text-left">
+                          <label style="padding: 10px 0 5px 0;">Your Full name</label>
+                          <input class="form-control" type="text" id="name" placeholder="Full Name">
+                      </div>
+                      <div class="col-xs-12 m-t-xs m-b-xs text-left">
+                          <label style="padding: 10px 0 5px 0">Something about the couple</label>
+                          <textarea class="form-control" id="comment" rows="3" cols="30" placeholder="Something about the couple"></textarea>
+                      </div>
+                      <div class="col-xs-12 radio text-left" style="margin: 10px 5px;">
+                          <div style="padding: 10px 0 5px 0;">Which Side do you belong to?</div>
+                          <label><input type="radio" name="side" value="Ladke Wale"> Ladke Wale</label>
+                          <label><input type="radio" name="side" value="Ladki Wale"> Ladki Wale</label>
                       </div>
                       <div class="col-xs-12 m-t-xs m-b-xs">
-                          <textarea class="form-control" id="comment" rows="3" cols="30" placeholder="Comment"></textarea>
-                      </div>
-                      <div class="col-xs-12 m-t-xs m-b-xs">
-                          <button class="btn btn-success pull-left" type="button" onClick="comments()">COMMENT</button>
+                          <button class="btn btn-default pull-left" type="button" style="color: #fff;background:#7dd0a2;" onClick="comments()">COMMENT</button>
                       </div>
                   </form>
               </div>
@@ -283,11 +291,16 @@
     function comments() {
         var name = $('#name').val();
         var comment = $('#comment').val();
+        var side = $("input[name='side']:checked").val();
         $('#name').val('');
         $('#comment').val('');
+        $("input[name='side']").prop('checked', false);
         db.ref('comments/comment' + count).set({
             name: name,
             comment: comment,
+            likes: 0,
+            side: side,
+            isApproved: false
         });
     }
 
@@ -295,16 +308,24 @@
        var keys = Object.keys(comments);
         var html = '';
        for(var i=0;i < len;i++) {
+           var com = comments[keys[i]];
+            if(!com.isApproved) continue;
             html += [
-               '<div class="item'+ (i === 0  ? "active" : "") +'">',
+               '<div class="item">',
                '<blockquote>',
-               '<p> ' + comments[keys[i]].comment + '</p>',
-               '<small><cite>' + comments[keys[i]].name + '</cite> (Ladke Waale)</small>',
+               '<p> ' + com.comment + '</p>',
+               '<small><cite>' + com.name + '</cite> ('+ com.side +')</small>',
                '</blockquote>',
                '</div>'
            ].join(' ');
        }
        $("#comments").html(html);
+       $('.item').first().addClass('active');
+       $('#myCarousel').carousel();
+    }
+
+    function like() {
+
     }
 </script>
 </body>
