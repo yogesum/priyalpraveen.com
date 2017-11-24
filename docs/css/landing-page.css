@@ -43,6 +43,7 @@ h6 {
     left: 0;
     height: 100%;
     width: 100%;
+    transition: height 999999s;
 }
 
 #home, .intro-header {
