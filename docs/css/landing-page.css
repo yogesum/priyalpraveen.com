@@ -18,7 +18,6 @@ h4,
 h5,
 h6 {
     font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
 }
 
 .lead {
@@ -214,4 +213,8 @@ p.copyright {
 }
 .m-b-xs {
     margin-bottom: 5px;
+}
+
+blockquote {
+    border-left: none !important;
 }
