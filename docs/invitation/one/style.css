@@ -199,6 +199,7 @@ html, body, .container {
   margin-left: -375px;
   position: absolute;
   top: 380px;
+  clear: both;
 }
 
 body {
@@ -848,8 +849,9 @@ i {
   left: 50%;
   margin-left: -350px;
   position: absolute;
-  bottom: 0;
   width: 700px;
+  top: 860px;
+  margin-top: 20px;
 }
 
 .whos a {
@@ -862,7 +864,7 @@ i {
   text-align: center;
   font-family: georgia, arial;
   font-style: italic;
-  /* margin-top: 30px; */
+  margin-top: 30px;
   font-size: 12px;
   color: #7fa4a5;
   /* float: left; */
