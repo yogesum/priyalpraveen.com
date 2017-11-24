@@ -31,9 +31,19 @@ h6 {
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
+}
+
+#bg-attach {
     background: linear-gradient(rgba(0,0,0,.1), rgba(0,0,0,.1)), url(../images/intro-header-responsive.jpg) no-repeat center center;
     background-size: cover;
     background-attachment: fixed;
+    background-size: 100%;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
 }
 
 #home, .intro-header {
@@ -217,4 +227,8 @@ p.copyright {
 
 blockquote {
     border-left: none !important;
+}
+
+.bg-white {
+    background: white !important;
 }
