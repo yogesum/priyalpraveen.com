@@ -51,7 +51,7 @@ Developers: Brendan Pittman
 
 Colors:
 
-yellow: #cbd500
+yellow: #92caab
 grey: #444
 turq: #68BCA5
 
@@ -140,7 +140,7 @@ body {
 }
 
 .fourcol-prop:hover {
-    background: #cbd500;
+    background: #92caab;
     cursor: pointer;
 }
 
@@ -228,8 +228,6 @@ a.fade:hover {
     opacity: 0.60;
     filter: alpha(opacity=60);
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-
-
 }
 
 img.prop {
@@ -247,6 +245,37 @@ img.prop:hover {
 
 
 /*~~~~~~~~~~~ Menu ~~~~~~~~~~~~~~*/
+@media(max-width:767px) {
+    .intro-message {
+        padding-bottom: 15%;
+    }
+
+    .intro-message > h1 {
+        font-size: 3em;
+    }
+
+    .auto-xs {
+        display: block !important;
+    }
+
+    ul.intro-social-buttons > li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.intro-social-buttons > li:last-child {
+        margin-bottom: 0;
+    }
+
+    .intro-divider {
+        width: 100%;
+    }
+}
+
+.slide {
+    text-align: center;
+}
 
 #menu {
 
@@ -278,7 +307,7 @@ li#menunav {
 
 
 #menunav a:hover {
-    border-bottom: 5px solid #cbd500;
+    border-bottom: 5px solid #92caab;
 }
 
 body#home a#homenav,
@@ -288,18 +317,18 @@ body#details a#detailsnav,
 body#registry a#registrynav,
 body#services a#servicesnav {
     color: #000;
-    border-bottom: 5px solid #cbd500;
+    border-bottom: 5px solid #92caab;
 }
 
 
 ::selection {
-    background:#cbd500;
+    background:#92caab;
 }
 ::-moz-selection {
-    background:#cbd500;
+    background:#92caab;
 }
 ::-webkit-selection {
-    background:#cbd500;
+    background:#92caab;
 }
 
 
@@ -314,7 +343,7 @@ p a, blockquote a {
 }
 
 p a:hover, blockquote a:hover {
-    color:#cbd500;
+    color:#92caab;
 
 }
 
@@ -398,7 +427,7 @@ h2 a, h3 a {
 }
 
 h2 a:hover, h3 a:hover {
-    color: #cbd500;
+    color: #92caab;
 }
 
 ul.details li {
@@ -422,7 +451,7 @@ ul.details li {
 }
 
 .count:hover {
-    background: #cbd500;
+    background: #92caab;
     cursor:pointer;
 }
 
@@ -451,7 +480,7 @@ ul.details li {
 }
 
 .courtney {
-    background-image: url('/images/courtney2.jpg');
+    background-image: url('../images/gallery/11.jpg');
     background-repeat: no-repeat;
 }
 
@@ -469,7 +498,7 @@ ul.details li {
 }
 
 .brendan {
-    background-image: url('/images/brendan2.jpg');
+    background-image: url('../images/gallery/17.jpg');
     background-repeat: no-repeat;
 }
 
@@ -503,9 +532,8 @@ blockquote {
 }
 
 .zag {
-    background-image: url('/images/zag.png');
+    background-image: url('../images/zag.png');
     background-repeat: repeat-x;
-    width: 100%;
     height: 25px;
 }
 
@@ -622,4 +650,24 @@ input.text, input.search, textarea.textarea {
 
 .nomar {
     margin:0;
+}
+
+
+#bars {
+    display: inline;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    color: #92caab;
+}
+
+#close {
+    display: inline;
+    position: absolute;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    border: 10px;
 }
