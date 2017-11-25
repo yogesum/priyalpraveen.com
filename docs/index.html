@@ -164,12 +164,12 @@
               <div class="col-md-offset-4 col-md-4 m-t-xs m-b-xs">
                   <form name="commentForm">
                       <div class="col-xs-12 m-t-xs m-b-xs text-left">
-                          <label style="padding: 10px 0 5px 0;">Your Full name</label>
-                          <input class="form-control" type="text" id="name" placeholder="Full Name">
+                          <input class="form-control" type="text" id="name" placeholder="Full Name" style="padding: 25px 10px;">
                       </div>
+                    <div class="col-xs-12" class="show"> <button class="btn btn-default" id="showComment" type="button">Say Now</button> </div>
+                    <div id="commentSection" class="hidden">
                       <div class="col-xs-12 m-t-xs m-b-xs text-left">
-                          <label style="padding: 10px 0 5px 0">Something about the couple</label>
-                          <textarea maxlength="160" class="form-control" id="comment" rows="3" style="resize: none" placeholder="Something about the couple"></textarea>
+                          <textarea maxlength="160" class="form-control" id="comment" rows="4" style="resize: none;padding: 25px 10px;" placeholder="Something about the couple"></textarea>
                       </div>
                       <div class="col-xs-12 radio text-left" style="margin: 10px 5px;">
                           <div style="padding: 10px 0 5px 0;">Which Side do you belong to?</div>
@@ -177,9 +177,10 @@
                           <label><input type="radio" name="side" value="Ladki Wale"> Ladki Wale</label>
                       </div>
                       <div class="col-xs-12 m-t-xs m-b-xs">
-                          <button class="btn btn-default pull-left" type="button" style="color: #fff;background:#7dd0a2;" onClick="postcomment()">COMMENT</button>
+                          <button class="col-xs-12 btn btn-default pull-left" type="button" style="color: #fff;background:#7dd0a2;" onClick="postcomment()">POST COMMENT</button>
                           <div id="error" class="text-left col-xs-12"  style="padding: 10px 0;"></div>
                       </div>
+                  </div>
                   </form>
               </div>
           </div>
@@ -335,6 +336,10 @@
                '</div>'
            ].join(' ');
        }
+       $('#showComment').click(function() {
+          $(this).hide();
+          $('#commentSection').removeClass('hidden').addClass('show');
+       });
        $("#comments").html(html);
        $('.item').first().addClass('active');
        $('#myCarousel').carousel();
