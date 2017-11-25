@@ -247,7 +247,50 @@ blockquote {
     line-height: 26px;
     text-transform: uppercase;
     letter-spacing: -.03em;
-    width: 650px;
+    width: 60%;
+}
+
+#drawer {
+    display: none;
+    position: fixed;
+    width: 280px;
+    top: 0;
+    left: -280px;
+    height: 100%;
+    background: #f5f5f5;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 992px) {
+    li#menunav {
+        text-align: left;
+    }
+
+    #menunav a {
+        color:#000;
+        padding: 5px;
+        display: block;
+        text-align: left;
+    }
+
+
+    #menunav a:hover {
+        border-bottom: 5px solid #92caab;
+        text-decoration: none;
+        border-bottom: 5px solid #92caab;
+        margin-bottom: -5px
+    }
+
+    body#home a#homenav,
+    body#proposal a#proposalnav,
+    body#rsvp a#rsvpnav,
+    body#details a#detailsnav,
+    body#registry a#registrynav,
+    body#services a#servicesnav {
+        color: #000;
+        border-bottom: 5px solid #92caab;
+        text-decoration: none;
+    }
 }
 
 
@@ -297,5 +340,23 @@ body#services a#servicesnav {
 ::-webkit-selection {
     background:#92caab;
     text-decoration: none;
+}
+
+#bars {
+    display: inline;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+#close {
+    display: inline;
+    position: absolute;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    border: 10px;
 }
 /* Menu Ends here*/

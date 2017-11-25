@@ -14,7 +14,7 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link href="./css/landing-page.css?v6" rel="stylesheet">
+  <link href="./css/landing-page.css?v7" rel="stylesheet">
 
   <!-- Custom Fonts -->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -83,8 +83,8 @@
 </section>
 <section class="bg-white">
 <div style="clear:both;">&nbsp;</div>
-<div class="zag"></div>
-<div id="menu">
+<div class="zag hidden-xs hidden-sm"></div>
+<div id="menu" class="hidden-xs hidden-sm">
     <li id="menunav"><a href="/" id="registrynav">Home</a></li>
     <li id="menunav"><a href="#whenNwhere" id="proposalnav">When and Where</a></li>
     <li id="menunav"><a href="the-couple.html" id="homenav">The Couple</a></li>
@@ -234,6 +234,16 @@
     </div>
   </div>
 </footer>
+<div id="bars" class="hidden-lg hidden-md">&#9776;</div>
+<div id="drawer" class="hidden-lg hidden-md">
+    <div id="close" class="hidden-lg hidden-md">&times;</div>
+    <div class="col-xs-12" style="margin-top: 35px;">
+    </div>
+    <li id="menunav"><a href="/" id="registrynav">Home</a></li>
+    <li id="menunav"><a href="#whenNwhere" id="proposalnav">When and Where</a></li>
+    <li id="menunav"><a href="the-couple.html" id="homenav">The Couple</a></li>
+    <li id="menunav"><a href="#" id="detailsnav">Contact</a></li>
+</div>
 
 <!-- time remaining clock -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -355,6 +365,15 @@
        $('.item').first().addClass('active');
        $('#myCarousel').carousel();
     }
+
+    $("#bars").click(function() {
+        $(this).hide();
+        $('#drawer').show().animate({ left: "0" }, 400);
+    });
+    $("#close").click(function() {
+        $("#bars").show();
+        $('#drawer').animate({ left: "-280px" }, 400);
+    });
 </script>
 </body>
 </html>
