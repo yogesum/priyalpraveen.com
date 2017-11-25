@@ -66,7 +66,6 @@ h6 {
 .intro-message {
     position: relative;
     padding-top: 20%;
-    padding-bottom: 20%;
 }
 
 .intro-message > h1 {
@@ -232,3 +231,71 @@ blockquote {
 .bg-white {
     background: white !important;
 }
+
+/*~~~~~~~~~~~ Menu ~~~~~~~~~~~~~~*/
+
+#menu {
+
+    margin: -43px auto 0 auto;
+    text-align: center;
+    height: auto;
+    background: #fff;
+    padding: 19px 0 19px 0;
+    font-family: "vinyl",sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    text-transform: uppercase;
+    letter-spacing: -.03em;
+    width: 650px;
+}
+
+
+li#menunav {
+    display:inline;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+#menunav a {
+    color:#000;
+    margin:0 15px;
+}
+
+
+#menunav a:hover {
+    border-bottom: 5px solid #92caab;
+    text-decoration: none;
+}
+
+body#home a#homenav,
+body#proposal a#proposalnav,
+body#rsvp a#rsvpnav,
+body#details a#detailsnav,
+body#registry a#registrynav,
+body#services a#servicesnav {
+    color: #000;
+    border-bottom: 5px solid #92caab;
+    text-decoration: none;
+}
+
+.zag {
+    background-image: url('../images/zag.png');
+    background-repeat: repeat-x;
+    height: 25px;
+}
+
+::selection {
+    background:#92caab;
+    text-decoration: none;
+}
+::-moz-selection {
+    background:#92caab;
+    text-decoration: none;
+}
+::-webkit-selection {
+    background:#92caab;
+    text-decoration: none;
+}
+/* Menu Ends here*/
