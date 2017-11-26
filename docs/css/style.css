@@ -671,3 +671,25 @@ input.text, input.search, textarea.textarea {
     cursor: pointer;
     border: 10px;
 }
+
+.intro-header {
+    padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+}
+
+#bg-attach {
+    background: url(../images/gallery/1.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+}
+
+#home, .intro-header {
+    height: 100%;
+}
