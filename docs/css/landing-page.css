@@ -372,3 +372,16 @@ body#services a#servicesnav {
     color: #92caab;
 }
 /* Menu Ends here*/
+
+.heart {
+    font-size: 200px;
+    color: #e00;
+    animation: beat .4s infinite alternate;
+    transform-origin: center;
+    font-weight: 900;
+}
+
+/* Heart beat animation */
+@keyframes beat{
+    to { transform: scale(1.2); }
+}
