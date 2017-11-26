@@ -20,31 +20,35 @@ time, mark, audio, video {
 }
 
 /*~~~~~~~~~~~ Menu ~~~~~~~~~~~~~~*/
-@media(max-width:767px) {
-    .intro-message {
-        padding-bottom: 15%;
+@media only screen and (max-width: 992px) {
+    li#menunav {
+        text-align: left;
     }
 
-    .intro-message > h1 {
-        font-size: 3em;
-    }
-
-    .auto-xs {
-        display: block !important;
-    }
-
-    ul.intro-social-buttons > li {
+    #menunav a {
+        color:#000;
+        padding: 5px;
         display: block;
-        margin-bottom: 20px;
-        padding: 0;
+        text-align: left;
     }
 
-    ul.intro-social-buttons > li:last-child {
-        margin-bottom: 0;
+
+    #menunav a:hover {
+        border-bottom: 5px solid #92caab;
+        text-decoration: none;
+        border-bottom: 5px solid #92caab;
+        margin-bottom: -5px
     }
 
-    .intro-divider {
-        width: 100%;
+    body#home a#homenav,
+    body#proposal a#proposalnav,
+    body#rsvp a#rsvpnav,
+    body#details a#detailsnav,
+    body#registry a#registrynav,
+    body#services a#servicesnav {
+        color: #000;
+        border-bottom: 5px solid #92caab;
+        text-decoration: none;
     }
 }
 
@@ -77,12 +81,14 @@ li#menunav {
 
 #menunav a {
     color:#000;
-    margin:0 7px;
+    margin:0 15px;
+    text-decoration: none;
 }
 
 
 #menunav a:hover {
     border-bottom: 5px solid #92caab;
+    text-decoration: none;
 }
 
 body#home a#homenav,
@@ -93,6 +99,7 @@ body#registry a#registrynav,
 body#services a#servicesnav {
     color: #000;
     border-bottom: 5px solid #92caab;
+    text-decoration: none;
 }
 
 
@@ -157,4 +164,16 @@ body#services a#servicesnav {
     height: 100%;
     background: #f5f5f5;
     font-size: 18px;
+}
+
+.zag {
+    background-image: url('../images/zag.png');
+    background-repeat: repeat-x;
+    height: 25px;
+}
+
+.bump {
+    width: 100%;
+    height: 30px;
+    clear:both;
 }
