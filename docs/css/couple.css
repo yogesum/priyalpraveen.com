@@ -1,0 +1,160 @@
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+    margin:0;
+    padding:0;
+    border:0;
+    outline:0;
+    font-size:100%;
+    vertical-align:baseline;
+    background:transparent;
+}
+
+/*~~~~~~~~~~~ Menu ~~~~~~~~~~~~~~*/
+@media(max-width:767px) {
+    .intro-message {
+        padding-bottom: 15%;
+    }
+
+    .intro-message > h1 {
+        font-size: 3em;
+    }
+
+    .auto-xs {
+        display: block !important;
+    }
+
+    ul.intro-social-buttons > li {
+        display: block;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    ul.intro-social-buttons > li:last-child {
+        margin-bottom: 0;
+    }
+
+    .intro-divider {
+        width: 100%;
+    }
+}
+
+.slide {
+    text-align: center;
+}
+
+#menu {
+
+    margin: -43px auto 0 auto;
+    text-align: center;
+    height: auto;
+    background: #f6f6f6;
+    padding: 19px 0 19px 0;
+    font-family: "vinyl",sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 26px;
+    text-transform: uppercase;
+    letter-spacing: -.03em;
+}
+
+
+li#menunav {
+    display:inline;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+#menunav a {
+    color:#000;
+    margin:0 7px;
+}
+
+
+#menunav a:hover {
+    border-bottom: 5px solid #92caab;
+}
+
+body#home a#homenav,
+body#proposal a#proposalnav,
+body#rsvp a#rsvpnav,
+body#details a#detailsnav,
+body#registry a#registrynav,
+body#services a#servicesnav {
+    color: #000;
+    border-bottom: 5px solid #92caab;
+}
+
+
+::selection {
+    background:#92caab;
+}
+::-moz-selection {
+    background:#92caab;
+}
+
+.zag {
+    background-image: url('../images/zag.png');
+    background-repeat: repeat-x;
+    height: 25px;
+}
+
+
+#bars {
+    z-index: 1000;
+    display: block;
+    background: rgb(255, 255, 255);
+    width: 40px;
+    text-align: center;
+    border: 2px solid rgb(136, 136, 136);
+    border-radius: 10px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    color: #92caab;
+}
+
+#close {
+    display: inline;
+    position: absolute;
+    right: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    border: 10px;
+}
+
+.centered-txt {
+  margin: 0 auto;
+  width: 454px;
+}
+
+@media(max-width:496px) {
+    .centered-txt {
+        margin: 0 auto;
+        width: auto;
+    }
+}
+
+#drawer {
+    z-index: 1000;
+    display: none;
+    position: fixed;
+    width: 280px;
+    top: 0;
+    left: -280px;
+    height: 100%;
+    background: #f5f5f5;
+    font-size: 18px;
+}
