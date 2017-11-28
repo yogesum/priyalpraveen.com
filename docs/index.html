@@ -62,7 +62,13 @@
 <div class="cover">
     <div class="cover-image" style="background-image : url(images/intro-header-responsive.jpg)"></div>
     <div class="intro-header text-center">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
+        <div id="no1" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="position: absolute;margin-top: -100px;">
+            <img src="images/logo-pp.png" width='200'>
+        </div>
+        <div id="no2" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="position: absolute;margin-top: -100px;">
+            <h1>Welcome to PriyalPraveen.com</h1>
+        </div>
+        <div id="no3" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="position: absolute;margin-top: -100px;">
             <h1>Praveen <i class="fa fa-heart-o auto-xs heart" aria-hidden="true"></i> Priyal</h1>
             <h3>Jaipur, Rajasthan   <i class="fa fa-globe fa-spin auto-xs" aria-hidden="true"></i>   December 11, 2017</h3>
             <hr class="intro-divider">
@@ -354,6 +360,38 @@
         $("#bars").show();
         $('#drawer').animate({ left: "-280px" }, 400);
     });
+
+    $(document).ready(function() {
+        var time = 3000;
+        $('#no1').fadeIn('slow', function() {
+            AnimateRotate(360, time);
+            setTimeout(function() {
+                $('#no1').fadeOut(500);
+                $('#no2').fadeIn(1000);
+                setTimeout(function() {
+                  $('#no2').fadeOut();
+                  $('#no3').fadeIn(500);
+                    setTimeout(function() {
+                        $('#no3')
+                            .animate({ 'color': '#fff', 'font-weight': 400, 'font-size': '20px', 'position': 'static' }, 600);
+                    }, 1000);
+                }, 2000);
+            }, time);
+        });
+    });
+
+    function AnimateRotate(d, time){
+        var elem = $("#no1");
+
+        $({deg: 0}).animate({deg: d}, {
+            duration: time,
+            step: function(now) {
+                elem.css({
+                    transform: "rotate(" + now + "deg)"
+                });
+            }
+        });
+    }
 </script>
 </body>
 </html>

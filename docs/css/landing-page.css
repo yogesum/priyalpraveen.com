@@ -375,7 +375,8 @@ body#services a#servicesnav {
 
 .heart {
     font-size: 200px;
-    color: #e00;
+    color: #fff;
+    text-shadow: 3px 3px 7px #e00;
     animation: beat .4s infinite alternate;
     transform-origin: center;
     font-weight: 900;
@@ -384,4 +385,8 @@ body#services a#servicesnav {
 /* Heart beat animation */
 @keyframes beat{
     to { transform: scale(1.2); }
+}
+
+#no1, #no2, #no3 {
+  display: none;
 }
