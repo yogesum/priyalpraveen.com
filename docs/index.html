@@ -7,14 +7,14 @@
   <meta name="description" content="wedding in Jaipur on December 11, 2017.">
   <meta name="author" content="Praveen Somani and Priyal Maheshwari">
 
-  <title>Praveen and Priyal Wedding</title>
+  <title>Praveen Weds Priyal</title>
 
   <!-- Bootstrap Core CSS -->
   <link rel="icon" href="/images/favicon.gif" type="image/x-icon">
     <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
 
   <!-- Custom CSS -->
-  <link href="./css/landing-page.css?v10" rel="stylesheet">
+  <link href="./css/landing-page.css?v11" rel="stylesheet">
 
   <!-- Custom Fonts -->
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -81,7 +81,7 @@
 <div class="zag hidden-xs hidden-sm"></div>
 <div id="menu" class="hidden-xs hidden-sm">
     <li id="menunav"><a href="/" id="registrynav">Home</a></li>
-    <li id="menunav"><a href="#whenNwhere" id="proposalnav">When and Where</a></li>
+    <li id="menunav"><a href="#when-and-where" id="proposalnav">When and Where</a></li>
     <li id="menunav"><a href="the-couple.html" id="homenav">The Couple</a></li>
     <li id="menunav"><a href="#" id="detailsnav">Contact</a></li>
 </div> <!-- /menu -->
@@ -117,7 +117,7 @@
 <section id="schedule" class="bg-white">
   <div class="center-block text-center" style="padding: 1rem .8rem;">
     <div class="clearfix"></div>
-     <a name="whenNwhere" target="whenNwhere"></a>
+     <a name="when-and-where" target="when-and-where"></a>
     <h1 class="section-heading">When and Where</h1>
     <div class="lead">
       <div class="hidden-xs hidden-sm col-sm-3 col-md-3 col-lg-3">
@@ -151,6 +151,7 @@
       <div class="container-fluid" style="margin-top: 5%;">
           <div class="row" style="border-top: 1px solid #eee;padding: 1%;">
               <div class="text-center col-xs-12 m-t-xs" style="margin-bottom: 20px;">
+                  <a name="bless" target="bless"></a>
                   <h3>Say something about the couple</h3>
               </div>
               <div class="col-xs-12 m-t-xs m-b-xs">
@@ -220,59 +221,61 @@
     </div>
   </div>
 </footer>
-<div id="bars" class="hidden-lg hidden-md">&#9776;</div>
+<div id="bars" class="hidden-lg hidden-md closed">&#9776;</div>
 <div id="drawer" class="hidden-lg hidden-md">
-    <div id="close" class="hidden-lg hidden-md">&times;</div>
-    <div class="col-xs-12" style="margin-top: 35px;">
-    </div>
-    <li id="menunav"><a href="/" id="registrynav">Home</a></li>
-    <li id="menunav"><a href="#whenNwhere" id="proposalnav">When and Where</a></li>
-    <li id="menunav"><a href="the-couple.html" id="homenav">The Couple</a></li>
-    <li id="menunav"><a href="#" id="detailsnav">Contact</a></li>
+    <div style='width:140px;margin: 10px auto auto;'><img class="img-responsive" src="images/logo-pp.png"/></div>
+    <div class="text-center" style="padding: 10px 0;">PriyalPraveen.com</div>
+    <ul class="list-group">
+        <li class="list-group-item"><a href="index.html">Home</a></li>
+        <li class="list-group-item"><a href="index.html#when-and-where">When and Where</a></li>
+        <li class="list-group-item"><a href="the-couple.html">The Couple</a></li>
+        <li class="list-group-item"><a href="index.html#bless">Bless the Couple</a></li>
+        <li class="list-group-item"><a href="contact.html">Contact</a></li>
+    </ul>
 </div>
 
 <!-- time remaining clock -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-<script type="text/javascript">
+<script>
     function getTimeRemaining(endtime) {
-      var t = endtime - new Date();
-      var seconds = Math.floor((t / 1000) % 60);
-      var minutes = Math.floor((t / 1000 / 60) % 60);
-      var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-      var days = Math.floor(t / (1000 * 60 * 60 * 24));
-      return {
-        'total': t,
-        'days': days,
-        'hours': hours,
-        'minutes': minutes,
-        'seconds': seconds
-      };
+        var t = endtime - new Date();
+        var seconds = Math.floor((t / 1000) % 60);
+        var minutes = Math.floor((t / 1000 / 60) % 60);
+        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        var days = Math.floor(t / (1000 * 60 * 60 * 24));
+        return {
+            'total': t,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
     }
 
     function initializeClock(id, endtime) {
-      var clock = document.getElementById(id);
-      var daysSpan = clock.querySelector('.days');
-      var hoursSpan = clock.querySelector('.hours');
-      var minutesSpan = clock.querySelector('.minutes');
-      var secondsSpan = clock.querySelector('.seconds');
+        var clock = document.getElementById(id);
+        var daysSpan = clock.querySelector('.days');
+        var hoursSpan = clock.querySelector('.hours');
+        var minutesSpan = clock.querySelector('.minutes');
+        var secondsSpan = clock.querySelector('.seconds');
 
-      function updateClock() {
-        var t = getTimeRemaining(endtime);
+        function updateClock() {
+            var t = getTimeRemaining(endtime);
 
-        daysSpan.innerHTML = t.days;
-        hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+            daysSpan.innerHTML = t.days;
+            hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+            minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+            secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
-        if (t.total <= 0) {
-          clearInterval(timeinterval);
+            if (t.total <= 0) {
+                clearInterval(timeinterval);
+            }
         }
-      }
 
-      updateClock();
-      var timeinterval = setInterval(updateClock, 1000);
+        updateClock();
+        var timeinterval = setInterval(updateClock, 1000);
     }
 
     var deadline = new Date(2017, 11, 12, 4, 0, 0);
@@ -280,118 +283,7 @@
     $(document).ready(function(){
         $('[data-toggle="popover"]').popover();
     });
-
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBxUy0ciqWkTBPNhTynV5TwMXiIIslGWcQ",
-        authDomain: "test-a74b8.firebaseapp.com",
-        databaseURL: "https://test-a74b8.firebaseio.com",
-        projectId: "test-a74b8",
-        storageBucket: "test-a74b8.appspot.com",
-        messagingSenderId: "827877571148"
-    };
-    firebase.initializeApp(config);
-    var db = firebase.database();
-    var count = 1;
-    var comments = {};
-    (function() {
-        var starCountRef = db.ref('comments');
-        starCountRef.on('value', function(snapshot) {
-            comments = snapshot.val();
-            count = snapshot.numChildren();
-            showComments(comments, count);
-        });
-    })();
-    function postcomment() {
-        var name = $('#name').val();
-        var comment = $('#comment').val();
-        if (!name || !comment) {
-            $('#error').html('<div class="text-danger" style="">Name and Comment are mandatory</div>');
-            return setTimeout(function() { $('#error').html('') }, 5000);
-        }
-        var side = $("input[name='side']:checked").val() || '';
-        $('#name').val('');
-        $('#comment').val('');
-        $("input[name='side']").prop('checked', false);
-        db.ref('comments/comment' + count).set({
-            name: name,
-            comment: comment,
-            likes: 0,
-            side: side,
-            isApproved: false
-        }).then(function() {
-            $('#error').html('<div class="text-success">Your comment is posted and waiting for approval</div>');
-            setTimeout(function() { $('#error').html('') }, 5000);
-        }).catch(function() {
-            $('#error').html('<div class="text-danger">Error Occurred</div>');
-            setTimeout(function() { $('#error').html('') }, 5000);
-        });
-    }
-
-    function showComments(comments, len) {
-       var keys = Object.keys(comments);
-        var html = '';
-       for(var i=0;i < len;i++) {
-           var com = comments[keys[i]];
-            if(!com.isApproved) continue;
-            html += [
-               '<div class="item">',
-               '<blockquote>',
-               '<p> ' + com.comment + '</p>',
-               '<small><cite>' + com.name + '</cite> <span class="'+ (!com.side && "hidden") +'">('+ com.side +')</span></small>',
-               '</blockquote>',
-               '</div>'
-           ].join(' ');
-       }
-       $('#showComment').click(function() {
-          $(this).hide();
-          $('#commentSection').removeClass('hidden').addClass('show');
-       });
-       $("#comments").html(html);
-       $('.item').first().addClass('active');
-       $('#myCarousel').carousel();
-    }
-
-    $("#bars").click(function() {
-        $(this).hide();
-        $('#drawer').show().animate({ left: "0" }, 400);
-    });
-    $("#close").click(function() {
-        $("#bars").show();
-        $('#drawer').animate({ left: "-280px" }, 400);
-    });
-
-    $(document).ready(function() {
-        var time = 3000;
-        $('#no1').fadeIn('slow', function() {
-            AnimateRotate(360, time);
-            setTimeout(function() {
-                $('#no1').fadeOut(500);
-                $('#no2').fadeIn(1000);
-                setTimeout(function() {
-                  $('#no2').fadeOut();
-                  $('#no3').fadeIn(500);
-                    setTimeout(function() {
-                        $('#no3')
-                            .animate({ 'color': '#fff', 'font-weight': 400, 'font-size': '20px', 'position': 'static' }, 600);
-                    }, 1000);
-                }, 2000);
-            }, time);
-        });
-    });
-
-    function AnimateRotate(d, time){
-        var elem = $("#no1");
-
-        $({deg: 0}).animate({deg: d}, {
-            duration: time,
-            step: function(now) {
-                elem.css({
-                    transform: "rotate(" + now + "deg)"
-                });
-            }
-        });
-    }
 </script>
+<script src="js/custom.js"></script>
 </body>
 </html>

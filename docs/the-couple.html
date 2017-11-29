@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="css/couple.css?v2">
+    <link rel="stylesheet" href="css/couple.css?v3">
     <link rel="stylesheet" type="text/css" href="css/couple.css" media="screen">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -36,7 +36,7 @@
             <div class="col-md-12">
             <div class="centered-txt">
               <h1 class="text-primary" style="margin-top: 10px;margin-bottom: 10px;">HER</h1>
-              <p>Hi! Priyal here. I live in the Pink city -Jaipur. I adore creativity. Nature is my thing. Shopping keeps me busy. Poetry of life keeps me sane. Loving Praveen makes me smile. Here are two line for you “ I Choose you and will choose you, over and over and over. Without pause, Without a doobt, in a heartbeat. <code>I’ll keep choosing you Praveen.</code></p>
+              <p>Hi! Priyal here. I live in the Pink city -Jaipur. I adore creativity. Nature is my thing. Shopping keeps me busy. Poetry of life keeps me sane. Loving Praveen makes me smile. Here are two line for you “ I Choose you and will choose you, over and over and over. Without pause, Without a doubt, in a heartbeat. <code>I’ll keep choosing you Praveen.</code></p>
             </div>
             </div>
           </div>
@@ -93,14 +93,18 @@
                         <img src="images/gallery/16.jpg">
                     </div>
                 </div>
-                <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left"></i></a>
-                <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right"></i></a>
+                <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left" style="font-size: 65px;margin-top: -50%;"></i></a>
+                <a class="right carousel-control" href="#carousel-example" data-slide="next"><i class="icon-next fa fa-angle-right" style="font-size: 65px;margin-top: -50%;"></i></a>
             </div>
         </div>
         <div style="clear:both;">&nbsp;</div>
     </div> <!-- /container -->
     <div style="clear:both;">&nbsp;</div>
     <div class="bump" style="margin-top:20px;"></div>
+
+
+
+
       <div class="section">
         <div class="container">
           <div class="row">
@@ -111,29 +115,23 @@
         </div>
       </div>
     </div>
-    <div id="bars" class="hidden-lg hidden-md">&#9776;</div>
+    <div id="bars" class="hidden-lg hidden-md closed">&#9776;</div>
     <div id="drawer" class="hidden-lg hidden-md">
-        <div id="close" class="hidden-lg hidden-md">&times;</div>
-        <div class="col-xs-12" style="margin-top: 35px;">
-        </div>
-        <li id="menunav"><a href="index.html" id="registrynav">Home</a></li>
-        <li id="menunav"><a href="index.html#whenNwhere" id="proposalnav">When and Where</a></li>
-        <li id="menunav"><a href="the-couple.html" id="homenav">The Couple</a></li>
-        <li id="menunav"><a href="#" id="detailsnav">Contact</a></li>
+        <div style='width:140px;margin: 10px auto auto;'><img class="img-responsive" src="images/logo-pp.png"/></div>
+        <div class="text-center" style="padding: 10px 0;">PriyalPraveen.com</div>
+        <ul class="list-group">
+            <li class="list-group-item"><a href="index.html">Home</a></li>
+            <li class="list-group-item"><a href="index.html#when-and-where">When and Where</a></li>
+            <li class="list-group-item"><a href="the-couple.html">The Couple</a></li>
+            <li class="list-group-item"><a href="contact.html">Contact</a></li>
+            <li class="list-group-item"><a href="#comment">Say Something</a></li>
+        </ul>
     </div>
     <p style="text-align:center;font-size:11px;">
         <strong><em><a href="http://digender.info">Site built by Friends</a></em></strong>
     </p>
     <!--/typekit-->
-
-   <script>
-       $("#bars").click(function() {
-           $(this).hide();
-           $('#drawer').show().animate({ left: "0" }, 400);
-       });
-       $("#close").click(function() {
-           $("#bars").show();
-           $('#drawer').animate({ left: "-280px" }, 400);
-       });
-   </script>
-</body></html>
+    <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+    <script src="js/custom.js"></script>
+</body>
+</html>
