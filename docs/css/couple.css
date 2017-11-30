@@ -194,6 +194,8 @@ body#services a#servicesnav {
     clear:both;
 }
 
+/* Deck CSS*/
+
 #deck {
     position: fixed;
     left: 0;
@@ -206,8 +208,9 @@ body#services a#servicesnav {
 }
 
 #deck img {
-    width: 100%;
+    width: 75%;
     vertical-align: middle;
+    text-align: center;
 }
 
 .helper {
@@ -238,4 +241,16 @@ body#services a#servicesnav {
     color: #888;
     background-color: #fff;
     content: "Full Screen";
+}
+
+.holder {
+    text-align: center;
+}
+
+.left {
+
+}
+
+.right {
+
 }
