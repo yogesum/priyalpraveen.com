@@ -105,8 +105,8 @@
     function showComments(comments, len) {
         var keys = Object.keys(comments);
         var html = '';
-        for(var i=0;i < len;i++) {
-            var com = comments[keys[i]];
+        for(var i=(len - 1);i > -1;i--) {
+            var com = comments['comment'+i];
             html += [
                 '<tr class="'+( com.isApproved ? "alert-success" : "alert-danger")+'">',
                 '<td>' + (i + 1) + '</td>',

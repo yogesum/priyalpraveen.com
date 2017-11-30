@@ -123,9 +123,14 @@
             <li class="list-group-item"><a href="index.html">Home</a></li>
             <li class="list-group-item"><a href="index.html#when-and-where">When and Where</a></li>
             <li class="list-group-item"><a href="the-couple.html">The Couple</a></li>
-            <li class="list-group-item"><a href="#comment">Wish the Couple</a></li>
+            <li class="list-group-item"><a href="index.html#bless">Wish the Couple</a></li>
             <li class="list-group-item"><a href="contact.html">Contact</a></li>
         </ul>
+    </div>
+    <div id="deck">
+        <div class="close">&times;</div>
+        <div class="holder"></div>
+        <!-- Image Deck Close -->
     </div>
     <p style="text-align:center;font-size:11px;">
         <strong><em><a href="http://digender.info">Site built by Friends</a></em></strong>
@@ -133,5 +138,15 @@
     <!--/typekit-->
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
     <script src="js/custom.js"></script>
+    <script>
+        $('.carousel-inner img').click(function(event) {
+           console.log(event.target);
+           $('.holder').html('').append('<span class="helper"></span>').append($(event.target).clone());
+           $('#deck').show();
+        });
+        $('.close').click(function() {
+           $('#deck').hide();
+        });
+    </script>
 </body>
 </html>

@@ -48,8 +48,8 @@ function postcomment() {
 function showComments(comments, len) {
     var keys = Object.keys(comments);
     var html = '';
-    for(var i=0;i < len;i++) {
-        var com = comments[keys[i]];
+    for(var i=(len - 1);i > -1;i--) {
+        var com = comments['comment'+i];
         if(!com.isApproved) continue;
         html += [
             '<div class="item">',
@@ -73,14 +73,15 @@ $("#bars").click(function() {
     if ($(this).hasClass('closed')) {
         $(this).removeClass('closed').addClass('open').animate({ left: "280px" }, 400);
         $('#drawer').show().animate({ left: "0" }, 400);
+        $(this).html('&times');
     } else {
         $(this).removeClass('open').addClass('closed').animate({ left: "0" }, 400);
         $('#drawer').animate({ left: "-280px" }, 400);
+        $(this).html('&#9776;');
     }
 });
 
 $('body').click(function(event) {
-    console.log($(event.target).is('div#bars'));
     if ($(event.target).is('div#bars')) return;
     $('#drawer').animate({ left: "-280px" }, 400);
     $('#bars').addClass('closed').animate({ left: "0" }, 400);

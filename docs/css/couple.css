@@ -193,3 +193,49 @@ body#services a#servicesnav {
     height: 30px;
     clear:both;
 }
+
+#deck {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 500;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#deck img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.close {
+    font-size: 30px;
+    color: #5b5b5b;
+    font-weight: bolder;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    background: #fff;
+    z-index: 1000;
+    text-align: center;
+}
+
+.full-screen {
+    position: absolute;
+    top: 10px;
+    color: #888;
+    background-color: #fff;
+    content: "Full Screen";
+}
