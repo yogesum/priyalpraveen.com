@@ -84,7 +84,7 @@ $("#bars").click(function() {
 $('body').click(function(event) {
     if ($(event.target).is('div#bars')) return;
     $('#drawer').animate({ left: "-280px" }, 400);
-    $('#bars').addClass('closed').animate({ left: "0" }, 400);
+    $('#bars').addClass('closed').animate({ left: "0" }, 400).html('&#9776;');
 });
 
 $(document).ready(function() {
