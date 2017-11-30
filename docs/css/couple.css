@@ -166,6 +166,7 @@ body#services a#servicesnav {
     background: rgba(34, 34, 34, 0.88);
     color: #fff;
     outline: 2px solid rgba(255, 255, 255, 0.52);
+    overflow-y: auto;
 }
 
 .list-group-item {
