@@ -208,7 +208,7 @@ body#services a#servicesnav {
 }
 
 #deck img {
-    width: 75%;
+    width: 100%;
     vertical-align: middle;
     text-align: center;
 }

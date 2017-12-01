@@ -57,40 +57,40 @@
                  data-ride="carousel" style="padding: 0;">
                 <div class="carousel-inner">
                     <div class="active item">
-                        <img src="images/gallery/2.jpg">
+                        <img src="images/gallery/2.jpg" data="0">
                     </div>
                     <div class="item">
-                        <img src="images/gallery/3.jpg">
+                        <img src="images/gallery/3.jpg" data="1">
                     </div>
                     <div class="item">
-                        <img src="images/gallery/4.jpg">
+                        <img src="images/gallery/4.jpg" data="2">
                     </div>
                     <div class="item">
-                        <img src="images/gallery/5.jpg">
+                        <img src="images/gallery/5.jpg" data="3">
                     </div>
                     <div class="item">
-                        <img src="images/gallery/6.jpg">
+                        <img src="images/gallery/6.jpg" data="4">
                     </div>
                     <div class="item">
-                        <img src="images/gallery/8.jpg">
+                        <img src="images/gallery/8.jpg" data="5">
                     </div>
                     <div class="item">
-                        <img src="images/gallery/9.jpg">
+                        <img src="images/gallery/9.jpg" data="6">
                     </div>
                     <div class="item">
-                        <img src="images/gallery/12.jpg">
+                        <img src="images/gallery/12.jpg" data="7">
                     </div>
                     <div class="item">
-                        <img src="images/gallery/13.jpg">
+                        <img src="images/gallery/13.jpg" data="8">
                     </div>
                     <div class="item">
-                        <img src="images/gallery/14.jpg">
+                        <img src="images/gallery/14.jpg" data="9">
                     </div>
                     <div class="item">
-                        <img src="images/gallery/15.jpg">
+                        <img src="images/gallery/15.jpg" data="10">
                     </div>
                     <div class="item">
-                        <img src="images/gallery/16.jpg">
+                        <img src="images/gallery/16.jpg" data="11">
                     </div>
                 </div>
                 <a class="left carousel-control" href="#carousel-example" data-slide="prev"><i class="icon-prev  fa fa-angle-left" style="font-size: 65px;margin-top: -50%;"></i></a>
@@ -125,6 +125,8 @@
     </div>
     <div id="deck">
         <div class="close">&times;</div>
+        <a class="left-deck-arrow left carousel-control" href="#carousel-example"><i class="icon-prev  fa fa-angle-left" style="font-size: 65px;margin-top: -50%;"></i></a>
+        <a class="right-deck-arrow right carousel-control" href="#carousel-example"><i class="icon-next fa fa-angle-right" style="font-size: 65px;margin-top: -50%;"></i></a>
         <div class="holder"></div>
         <!-- Image Deck Close -->
     </div>
@@ -135,12 +137,29 @@
     <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
     <script src="js/custom.js"></script>
     <script>
+        var imgIidx = 2;
+        var images = [2, 3, 4, 5, 6, 8, 9, 12, 13, 14, 15, 16, 2];
+
         $('.carousel-inner img').click(function(event) {
+           imgIidx = images[parseInt($(event.target).attr('data'))];
            $('.holder').html('').append('<span class="helper"></span>').append($(event.target).clone());
            $('#deck').show();
         });
         $('.close').click(function() {
            $('#deck').hide();
+        });
+
+        $('.left-deck-arrow').click(function() {
+            imgIidx --;
+            if (imgIidx === 0 && images[imgIidx] === 2) imgIidx = images.length - 1;
+            console.log(imgIidx)
+            $('.holder').html('').append('<span class="helper"></span>').append('<img src="images/gallery/' + images[imgIidx] +'.jpg"/>');
+        });
+
+        $('.right-deck-arrow').click(function() {
+            imgIidx ++;
+            if (imgIidx > 0 && images[imgIidx] === 2) imgIidx = 0;
+            $('.holder').html('').append('<span class="helper"></span>').append('<img src="images/gallery/' + images[imgIidx] +'.jpg"/>');
         });
     </script>
 </body>
