@@ -247,10 +247,22 @@ body#services a#servicesnav {
     text-align: center;
 }
 
-.left {
-
+@media only screen and (min-device-width: 480px)
+and (max-device-width: 640px)
+and (orientation: landscape) {
+    #deck img {
+        width: 75%;
+        vertical-align: middle;
+        text-align: center;
+    }
 }
 
-.right {
-
+@media only screen and (min-device-width: 670px)
+and (max-device-width: 1366px)
+and (orientation: landscape) {
+    #deck img {
+        width: 65%;
+        vertical-align: middle;
+        text-align: center;
+    }
 }
