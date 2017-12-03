@@ -149,7 +149,7 @@
         var imgIidx = 2;
         var images = [2, 3, 4, 5, 6, 8, 9, 12, 13, 14, 15, 16, 18, 19, 20, 2];
 
-        $(".carousel-inner img").click(function(i){imgIidx=images[parseInt($(i.target).attr("data"))],$(".holder").html("").append('<span class="helper"></span>').append($(i.target).clone()),$("#deck").show()}),$(".close").click(function(){$("#deck").hide()}),$(".left-deck-arrow").click(function(){imgIidx--,0===imgIidx&&2===images[imgIidx]&&(imgIidx=images.length-1),console.log(imgIidx),$(".holder").html("").append('<span class="helper"></span>').append('<img src="images/gallery/'+images[imgIidx]+'.jpg"/>')}),$(".right-deck-arrow").click(function(){imgIidx++,imgIidx>0&&2===images[imgIidx]&&(imgIidx=0),$(".holder").html("").append('<span class="helper"></span>').append('<img src="images/gallery/'+images[imgIidx]+'.jpg"/>')});
+        $(".carousel-inner img").click(function(i){imgIidx=images[parseInt($(i.target).attr("data"))],$(".holder").html("").append('<span class="helper"></span>').append($(i.target).clone()),$("#deck").show()}),$(".close").click(function(){$("#deck").hide()}),$(".left-deck-arrow").click(function(){imgIidx--,0===imgIidx&&2===images[imgIidx]&&(imgIidx=images.length-1),console.log(imgIidx),$(".holder").html("").append('<span class="helper"></span>').append('<img src="../images/gallery/'+images[imgIidx]+'.jpg"/>')}),$(".right-deck-arrow").click(function(){imgIidx++,imgIidx>0&&2===images[imgIidx]&&(imgIidx=0),$(".holder").html("").append('<span class="helper"></span>').append('<img src="images/gallery/'+images[imgIidx]+'.jpg"/>')});
     </script>
 </body>
 </html>
