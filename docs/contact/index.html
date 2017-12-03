@@ -6,62 +6,10 @@
         <link href="contact.css?v=1" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet">
         <style>
-
-            #bars {
-                display: block;
-                background: rgb(255, 255, 255);
-                width: 40px;
-                text-align: center;
-                outline: 2px solid rgb(136, 136, 136);
-                position: fixed;
-                top: 75px;
-                left: 0;
-                font-size: 25px;
-                cursor: pointer;
-                color: #92caab;
-            }
-
-            .centered-txt {
-                margin: 0 auto;
-                width: 454px;
-            }
-
-            @media(max-width:496px) {
-                .centered-txt {
-                    margin: 0 auto;
-                    width: auto;
-                }
-            }
-
-            #drawer {
-                display: none;
-                position: fixed;
-                width: 280px;
-                top: 0;
-                left: -280px;
-                height: 100%;
-                font-size: 18px;
-                background: rgba(34, 34, 34, 0.88);
-                color: #fff;
-                outline: 2px solid rgba(255, 255, 255, 0.52);
-                overflow-y: auto;
-            }
-
-            .list-group-item {
-                background-color: transparent !important;
-                cursor: pointer;
-                border-radius: 0 !important;
-                border-left: none;
-                border-right: none;
-            }
-
-            .list-group-item > a {
-                color: rgba(255, 255, 255, 0.8) !important;
-            }
-
+            #bars,#drawer{position:fixed}#bars{display:block;background:#fff;width:40px;text-align:center;outline:#888 solid 2px;top:75px;left:0;font-size:25px;cursor:pointer;color:#92caab}.centered-txt{margin:0 auto;width:454px}@media(max-width:496px){.centered-txt{margin:0 auto;width:auto}}#drawer{display:none;width:280px;top:0;left:-280px;height:100%;font-size:18px;background:rgba(34,34,34,.88);color:#fff;outline:rgba(255,255,255,.52) solid 2px;overflow-y:auto}.list-group-item{background-color:transparent!important;cursor:pointer;border-radius:0!important;border-left:none;border-right:none}.list-group-item>a{color:rgba(255,255,255,.8)!important}
         </style>
     </head>
-    <body class="cover-image" style="background-image : url('http://pingendo.github.io/pingendo-bootstrap/assets/blurry/800x600/11.jpg');z-index: 2;overflow: auto;">
+    <body class="cover-image" style="background-image : url('http://pingendo.github.io/pingendo-bootstrap/assets/blurry/800x600/11.jpg');z-index: 2;overflow: auto;padding: 10px !important;">
     <hr/>
     <div>
         <h2 class="text-center" style="color: #fff;"> Contact Details</h2>
@@ -123,6 +71,7 @@
       </div>
       <hr/>
       <div class="">
+          <a name="transport" target="transport"></a>
           <h2 class="text-center" style="color: #fff;"> Mode of transport</h2>
       </div>
       <hr/>
@@ -151,11 +100,12 @@
         <div style='width:140px;margin: 10px auto auto;'><img class="img-responsive" src="../images/logo-pp.png"/></div>
         <div class="text-center" style="padding: 10px 0;">PriyalPraveen.com</div>
         <ul class="list-group">
-            <li class="list-group-item"><a href="../index.html">Home</a></li>
-            <li class="list-group-item"><a href="../index.html#when-and-where">When and Where</a></li>
+            <li class="list-group-item"><a href="../">Home</a></li>
+            <li class="list-group-item"><a href="../#when-and-where">When and Where</a></li>
             <li class="list-group-item"><a href="../couple/">The Couple</a></li>
-            <li class="list-group-item"><a href="../index.html#bless">Wish the Couple</a></li>
-            <li class="list-group-item"><a href="index.html">Contact</a></li>
+            <li class="list-group-item"><a href="../#bless">Wish the Couple</a></li>
+            <li class="list-group-item"><a href="../contact">Contact</a></li>
+            <li class="list-group-item"><a href="../contact#transport">How to Reach?</a></li>
         </ul>
     </div>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>

@@ -26,38 +26,19 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style type="text/css">
-        #clockdiv {
-            font-family: sans-serif;
-            color: #df272b;
-            display: inline-block;
-            font-weight: 100;
-            text-align: center;
-            font-size: 30px;
-        }
-
-        #clockdiv > div {
-            padding: 10px;
-            border-radius: 3px;
-            background: rgba(236, 236, 236, 0.40);
-            display: inline-block;
-        }
-
-        #clockdiv div > span {
-            padding: 15px;
-            width: 72px;
-            border-radius: 93px;
-            background: rgba(236, 236, 236, 0.8);
-            display: inline-block;
-        }
-
-        .smalltext {
-            padding-top: 5px;
-            font-size: 16px;
-        }
+        #clockdiv{font-family:sans-serif;color:#df272b;display:inline-block;font-weight:100;text-align:center;font-size:30px}#clockdiv>div{padding:10px;border-radius:3px;background:rgba(236,236,236,.4);display:inline-block}#clockdiv div>span{padding:15px;width:72px;border-radius:93px;background:rgba(236,236,236,.8);display:inline-block}.smalltext{padding-top:5px;font-size:16px}
     </style>
 </head>
 
 <body>
+<header>
+    <div class="navbar">
+        <div class=""><a href="../">Home</a></div>
+        <div class=""><a href="../#wishes">Wishes</a></div>
+        <div class=""><a href="../couple">Couple</a></div>
+        <div class=""><a href="../contact">Contact</a></div>
+    </div>
+</header>
 <section>
     <table class="table table-stripped">
         <thead>
@@ -74,61 +55,10 @@
         </tbody>
     </table>
 </section>
-
-
-<!-- time remaining clock -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 <script type="text/javascript">
-    // Initialize Firebase
-    var config = {
-        apiKey: "AIzaSyBxUy0ciqWkTBPNhTynV5TwMXiIIslGWcQ",
-        authDomain: "test-a74b8.firebaseapp.com",
-        databaseURL: "https://test-a74b8.firebaseio.com",
-        projectId: "test-a74b8",
-        storageBucket: "test-a74b8.appspot.com",
-        messagingSenderId: "827877571148"
-    };
-    firebase.initializeApp(config);
-    var db = firebase.database();
-    var count = 1;
-    var comments = {};
-    (function() {
-        var starCountRef = db.ref('comments');
-        starCountRef.on('value', function(snapshot) {
-            comments = snapshot.val();
-            count = snapshot.numChildren();
-            showComments(comments, count);
-        });
-    })();
-
-    function showComments(comments, len) {
-        var keys = Object.keys(comments);
-        var html = '';
-        for(var i=(len - 1);i > -1;i--) {
-            var com = comments['comment'+i];
-            html += [
-                '<tr class="'+( com.isApproved ? "alert-success" : "alert-danger")+'">',
-                '<td>' + (i + 1) + '</td>',
-                '<td>' + com.name + '</td>',
-                '<td>' + com.side + '</td>',
-                '<td>' + com.comment + '</td>',
-                '<td><button class="btn btn-success" idx="' + i + '">Approve</button>&nbsp;<button  idx="' + i + '" class="btn btn-danger">Reject</button></td>',
-                '</tr>'
-            ].join(' ');
-        }
-        $("#commentList").html(html);
-    }
-
-    var table = $( "table" );
-    table.delegate( ".btn", "click", function() {
-        var updates = {};
-        var idx = $(this).attr('idx');
-        var data =  comments['comment' + parseInt(idx)];
-        data.isApproved = $(this).hasClass('btn-success');
-        updates['comments/comment' + parseInt(idx)] = data;
-        return db.ref().update(updates);
-    });
+    function showComments(t,e){for(var s=(Object.keys(t),""),n=e-1;n>-1;n--){var a=t["comment"+n];s+=['<tr class="'+(a.isApproved?"alert-success":"alert-danger")+'">',"<td>"+(n+1)+"</td>","<td>"+a.name+"</td>","<td>"+a.side+"</td>","<td>"+a.comment+"</td>",'<td><button class="btn btn-success" idx="'+n+'">Approve</button>&nbsp;<button  idx="'+n+'" class="btn btn-danger">Reject</button></td>',"</tr>"].join(" ")}$("#commentList").html(s)}var config={apiKey:"AIzaSyBxUy0ciqWkTBPNhTynV5TwMXiIIslGWcQ",authDomain:"test-a74b8.firebaseapp.com",databaseURL:"https://test-a74b8.firebaseio.com",projectId:"test-a74b8",storageBucket:"test-a74b8.appspot.com",messagingSenderId:"827877571148"};firebase.initializeApp(config);var db=firebase.database(),count=1,comments={};!function(){var t=db.ref("comments");t.on("value",function(t){comments=t.val(),count=t.numChildren(),showComments(comments,count)})}();var table=$("table");table.delegate(".btn","click",function(){var t={},e=$(this).attr("idx"),s=comments["comment"+parseInt(e)];return s.isApproved=$(this).hasClass("btn-success"),t["comments/comment"+parseInt(e)]=s,db.ref().update(t)});
 </script>
 </body>
 </html>

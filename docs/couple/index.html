@@ -4,8 +4,6 @@
     <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="couple.css?v4">
     <link rel="stylesheet" type="text/css" href="couple.css" media="screen">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <body style="background: #f6f6f6">
     <div class="cover">
       <div class="cover-image" style="background-image : url(../images/gallery/1.jpg)"></div>
@@ -53,7 +51,7 @@
         </div>
         <div style="clear:both;">&nbsp;</div>
         <div class="container">
-            <div id="carousel-example" data-interval="30000" class="carousel slide col-xs-12"
+            <div id="carousel-example" data-interval="3000" class="carousel slide col-xs-12"
                  data-ride="carousel" style="padding: 0;">
                 <div class="carousel-inner">
                     <div class="active item">
@@ -130,6 +128,7 @@
             <li class="list-group-item"><a href="../couple">The Couple</a></li>
             <li class="list-group-item"><a href="../#bless">Wish the Couple</a></li>
             <li class="list-group-item"><a href="../contact">Contact</a></li>
+            <li class="list-group-item"><a href="../contact/#transport">how to Reach?</a></li>
         </ul>
     </div>
     <div id="deck">
@@ -143,32 +142,14 @@
         <strong><em><a href="/friends">Site built by Friends</a></em></strong>
     </p>
     <!--/typekit-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="../js/custom.js"></script>
     <script>
         var imgIidx = 2;
         var images = [2, 3, 4, 5, 6, 8, 9, 12, 13, 14, 15, 16, 18, 19, 20, 2];
 
-        $('.carousel-inner img').click(function(event) {
-           imgIidx = images[parseInt($(event.target).attr('data'))];
-           $('.holder').html('').append('<span class="helper"></span>').append($(event.target).clone());
-           $('#deck').show();
-        });
-        $('.close').click(function() {
-           $('#deck').hide();
-        });
-
-        $('.left-deck-arrow').click(function() {
-            imgIidx --;
-            if (imgIidx === 0 && images[imgIidx] === 2) imgIidx = images.length - 1;
-            console.log(imgIidx)
-            $('.holder').html('').append('<span class="helper"></span>').append('<img src="images/gallery/' + images[imgIidx] +'.jpg"/>');
-        });
-
-        $('.right-deck-arrow').click(function() {
-            imgIidx ++;
-            if (imgIidx > 0 && images[imgIidx] === 2) imgIidx = 0;
-            $('.holder').html('').append('<span class="helper"></span>').append('<img src="images/gallery/' + images[imgIidx] +'.jpg"/>');
-        });
+        $(".carousel-inner img").click(function(i){imgIidx=images[parseInt($(i.target).attr("data"))],$(".holder").html("").append('<span class="helper"></span>').append($(i.target).clone()),$("#deck").show()}),$(".close").click(function(){$("#deck").hide()}),$(".left-deck-arrow").click(function(){imgIidx--,0===imgIidx&&2===images[imgIidx]&&(imgIidx=images.length-1),console.log(imgIidx),$(".holder").html("").append('<span class="helper"></span>').append('<img src="images/gallery/'+images[imgIidx]+'.jpg"/>')}),$(".right-deck-arrow").click(function(){imgIidx++,imgIidx>0&&2===images[imgIidx]&&(imgIidx=0),$(".holder").html("").append('<span class="helper"></span>').append('<img src="images/gallery/'+images[imgIidx]+'.jpg"/>')});
     </script>
 </body>
 </html>
