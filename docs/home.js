@@ -10,8 +10,6 @@ var getDaysPast = function() {
     console.log(getDaysPast, 100);
 }
 
-setInterval(getDaysPast, 100);
-
 function postcomment() {
     var e = $("#name").val(),
         t = $("#comment").val();
